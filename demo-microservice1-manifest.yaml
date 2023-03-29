@@ -22,7 +22,7 @@ spec:
           - name: demo-microservice2-host
             value: demo-microservice2
           - name: demo-microservice2-port
-            value: 8082            
+            value: "8082"            
         
 ---
 apiVersion: v1
