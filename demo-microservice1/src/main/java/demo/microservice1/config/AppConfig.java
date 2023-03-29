@@ -13,5 +13,12 @@ public class AppConfig {
 	public String getService2Host() {
 		return service2Host;
 	}
+	
+	@Value("${demo-microservice2-port:8082}")
+    private String service2Port;
+
+	public String getService2Port() {
+		return service2Port;
+	}
 }
 

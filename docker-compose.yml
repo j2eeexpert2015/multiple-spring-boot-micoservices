@@ -2,9 +2,7 @@ version: '3'
 
 services:
   demo-microservice1:
-    #image: demo-microservice1:latest
     image: j2eeexpert2015/demo-microservice1:latest
-    #image: ghcr.io/j2eeexpert2015/demo-microservice1:latest
     container_name: demo-microservice1
     build:
       context: ./demo-microservice1
@@ -13,10 +11,9 @@ services:
       - "8081:8081"
     environment:
       - demo-microservice2-host=demo-microservice2
+      - demo-microservice2-port=8082      
   demo-microservice2:
-    #image: demo-microservice2:latest
     image: j2eeexpert2015/demo-microservice2:latest
-    #image: ghcr.io/j2eeexpert2015/demo-microservice2:latest
     container_name: demo-microservice2
     build:
       context: ./demo-microservice2

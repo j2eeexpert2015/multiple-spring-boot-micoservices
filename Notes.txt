@@ -51,6 +51,14 @@ URLs
 http://localhost:8081/callmicroservice2
 http://localhost:8082
 
+-Ddemo-microservice2-port=8084
+telepresence connect
+telepresence helm install
+telepresence list
+telepresence intercept <service_name> --port <local_port>
+telepresence intercept demo-microservice1 --port 8083
+telepresence leave demo-microservice1
+
 
 
 

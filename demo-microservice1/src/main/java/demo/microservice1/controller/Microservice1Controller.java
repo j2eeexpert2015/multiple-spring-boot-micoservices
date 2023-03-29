@@ -31,8 +31,8 @@ public class Microservice1Controller {
 
 	@RequestMapping("/callmicroservice2")
 	String displayDefaultMessageWithParameter() {
-		LOGGER.info("Host name to access is {}", appConfig.getService2Host());
-		final String microservice2Url = "http://"+appConfig.getService2Host()+":8082/testcall";
+		LOGGER.info("Host name to access is :{},and port:{}", appConfig.getService2Host(),appConfig.getService2Port());
+		final String microservice2Url = "http://"+appConfig.getService2Host()+":"+appConfig.getService2Port()+"/testcall";
 		final String response = (String) restTemplate.exchange(microservice2Url, HttpMethod.GET, null, String.class)
 				.getBody();
 
