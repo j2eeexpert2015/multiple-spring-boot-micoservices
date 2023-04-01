@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-microservice2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-microservice2
+  template:
+    metadata:
+      labels:
+        app: demo-microservice2
+    spec:
+      containers:
+      - name: demo-microservice2-container
+        image: j2eeexpert2015/demo-microservice2:latest
+        #image: demo-microservice2:latest
+        ports:
+        - containerPort: 8082
+        env:
+          - name: JAVA_TOOL_OPTIONS
+            value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+          - name: JAVA_DEBUG_PORT
+            value: "5005"           
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-microservice2
+spec:
+  selector:
+    app: demo-microservice2
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8082
+  type: LoadBalancer
