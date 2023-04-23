@@ -20,7 +20,8 @@ spec:
         - containerPort: 8082
         env:
           - name: JAVA_TOOL_OPTIONS
-            value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+            value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006" ## For JDK 8 and lower
+            #value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006" # For JDK 9 and higher
           - name: JAVA_DEBUG_PORT
             value: "5005"           
 ---
